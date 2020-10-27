@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(new Recurrence(Proposal::where('status', 'approved')->where('haveRecurrence', true)->get()))->daily();
+        $schedule->job(new Recurrence)->daily();
     }
 
     /**
